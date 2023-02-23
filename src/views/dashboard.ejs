@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+        rel="stylesheet" />
+    <style>
+        body {
+            font-family: "Inter", sans-serif;
+        }
+        h3{
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .align-middle{
+            align-items: center !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <div class="flex justify-center">
+        <div class="lg:w-1/2 xl:w-8/12 my-32 sm:m-20 sm:my-32 bg-white shadow sm:rounded-lg flex justify-center">
+            <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
+                <div class="flex flex-col items-center">
+                    <h1 class="text-2xl xl:text-3xl font-extrabold">
+                        Welcome to Vola
+                    </h1>
+                    <div class="w-full flex-1 mt-8">
+                        <div class="mx-auto max-w-xs">
+                            <div class="flex align-middle">
+                                <h3> User Name :</h3> 
+                                <h5  class="ml-3"> <%- username %> </h5>
+                            </div>
+                            <div class="flex mt-2 align-middle">
+                                <h3> Email :</h3> 
+                                <h5  class="ml-3"> <%- email %> </h5>
+                            </div>
+                            <p class="mt-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-1 bg-indigo-100 text-center hidden lg:flex">
+                <div class="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
+                    style="background-image: url('https://storage.googleapis.com/devitary-image-host.appspot.com/15848031292911696601-undraw_designer_life_w96d.svg');">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
