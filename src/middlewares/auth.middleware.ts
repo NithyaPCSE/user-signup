@@ -7,18 +7,16 @@ import { DataStoredInToken, RequestWithUser } from '@interfaces/auth.interface';
 
 const authMiddleware = async (req: RequestWithUser, res: Response, next: NextFunction) => {
   try {
-    const Authorization = req.cookies['Authorization'] || (req.header('Authorization') ? req.header('Authorization').split('Bearer ')[1] : null);
-
+    const Authorization = req.session['token'] || (req.header('token') ? req.header('token').split('Bearer ')[1] : null);
     if (Authorization) {
       const secretKey: string = SECRET_KEY;
       const { id } = (await verify(Authorization, secretKey)) as DataStoredInToken;
       const findUser = await UserEntity.findOne(id, { select: ['id', 'email', 'password','username'] });
-
       if (findUser) {
         req.user = findUser;
         next();
       } else {
-        next(new HttpException(401, 'Wrong authentication token'));
+        next(new HttpException(401, Authorization));
       }
     } else {
       res.redirect("/login")

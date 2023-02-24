@@ -8,7 +8,7 @@ import session from 'express-session';
 import { default as FileStore } from 'session-file-store';
 import compression from 'compression';
 import { createConnection } from 'typeorm';
-import { NODE_ENV, PORT, LOG_FORMAT, ORIGIN, CREDENTIALS } from '@config';
+import { NODE_ENV, PORT, LOG_FORMAT, ORIGIN, CREDENTIALS,SECRET_KEY } from '@config';
 import { dbConnection } from '@databases';
 import { Routes } from '@interfaces/routes.interface';
 import errorMiddleware from '@middlewares/error.middleware';
