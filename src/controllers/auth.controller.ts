@@ -65,7 +65,8 @@ class AuthController {
 
   public dashboardPage = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const userData: User = req.session.user as User;
+      const userData = req.session.user as User;
+      console.log(userData)
       res.render('dashboard', userData)
     } catch (error) {
       next(error);

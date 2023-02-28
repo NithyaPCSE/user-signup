@@ -13,7 +13,7 @@ const unAuthMiddleware = async (req: RequestWithUser, res: Response, next: NextF
       const { id } = (await verify(Authorization, secretKey)) as DataStoredInToken;
       const findUser = await UserEntity.findOne(id, { select: ['id', 'email', 'password','username'] });
       if (findUser) {
-        req.user = findUser;
+        req.session.user = findUser;
         res.redirect("/dashboard");
       } else {
         next(new HttpException(401, 'Wrong authentication token'));

@@ -13,7 +13,7 @@ const authMiddleware = async (req: RequestWithUser, res: Response, next: NextFun
       const { id } = (await verify(Authorization, secretKey)) as DataStoredInToken;
       const findUser = await UserEntity.findOne(id, { select: ['id', 'email', 'password','username'] });
       if (findUser) {
-        req.user = findUser;
+        req.session.user = findUser;
         next();
       } else {
         next(new HttpException(401, Authorization));
